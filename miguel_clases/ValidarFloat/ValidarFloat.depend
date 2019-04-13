@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1553820425 source:/home/alumno/Escritorio/miguel_clases/ValidarFloat/main.c
+	<stdio.h>
+	<stdlib.h>
+

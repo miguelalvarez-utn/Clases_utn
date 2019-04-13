@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1554922656 source:c:\users\miguea11\desktop\mi_biblioteca\mi_biblioteca\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Mis_Prototipos.h"
+
+1554922574 source:c:\users\miguea11\desktop\mi_biblioteca\mi_biblioteca\mis_funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"Mis_Prototipos.h"
+	<string.h>
+
+1554923068 c:\users\miguea11\desktop\mi_biblioteca\mi_biblioteca\mis_prototipos.h
+	<stdio.h>
+	<stdlib.h>
+
+1554922656 source:c:\users\miguea11\desktop\clases-y-trabajos--master\clases-y-trabajos--master\miguel_clases\mi_biblioteca\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Mis_Prototipos.h"
+
+1554923068 c:\users\miguea11\desktop\clases-y-trabajos--master\clases-y-trabajos--master\miguel_clases\mi_biblioteca\mis_prototipos.h
+	<stdio.h>
+	<stdlib.h>
+
+1554956470 source:c:\users\miguea11\desktop\clases-y-trabajos--master\clases-y-trabajos--master\miguel_clases\mi_biblioteca\mis_funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"Mis_Prototipos.h"
+	<string.h>
+
