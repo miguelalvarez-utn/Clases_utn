@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1555289847 source:c:\users\miguea11\desktop\carpeta_trabajo\func_desarrolladas\utn.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	<ctype.h>
+
+1555289847 c:\users\miguea11\desktop\carpeta_trabajo\func_desarrolladas\utn.h
+
+1555289204 source:c:\users\miguea11\desktop\carpeta_trabajo\func_desarrolladas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	<string.h>
+
