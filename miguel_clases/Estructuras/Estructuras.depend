@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1555808153 source:c:\users\miguea11\desktop\carpeta_trabajo\estructuras\utn.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"utn.h"
+	<ctype.h>
+
+1555808153 c:\users\miguea11\desktop\carpeta_trabajo\estructuras\utn.h
+	<stdio.h>
+	<stdlib.h>
+
+1555808153 source:c:\users\miguea11\desktop\carpeta_trabajo\estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"utn.h"
+
+1555808299 source:c:\users\miguea11\desktop\carpeta_trabajo\estructuras\utn_isvalids.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"utn.h"
+	<ctype.h>
+
