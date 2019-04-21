@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #include "utn.h"
 #include <ctype.h>
 #define MAX_DIGIT_OPTION 2
@@ -15,12 +16,13 @@
   *\param Cantidad de reintentos por error, y un puntero a resultado final.
   *\return Un entero para la verificacion de exito o de error en el programa.
 */
+
 int getString ( char* msg,
                 char* msgError,
                 int minimo,
                 int maximo,
                 int reintentos,
-                char* resultado)
+                char resultado[])
 {
     int retorno = -1;
     char bufferStr[4096];
@@ -32,7 +34,7 @@ int getString ( char* msg,
             printf("%s",msg);
             fgets(bufferStr,sizeof(bufferStr),stdin);
             bufferStr[strlen(bufferStr)-1] = '\0';
-            if(strlen(bufferStr)>=minimo && strlen(bufferStr) <maximo)
+            if(strlen(bufferStr)>=minimo && strlen(bufferStr) < maximo)
             {
                 strncpy(resultado,bufferStr,maximo);
                 retorno = 0;
@@ -50,7 +52,7 @@ int getName (   char* msg,
                 int minimo,
                 int maximo,
                 int reintentos,
-                char* resultado)
+                char resultado[])
 {
     int retorno = -1;
     char bufferStr[4096];
@@ -155,10 +157,10 @@ int getOption(  char* msg,
                 int maximo,
                 int reintentos,
                 char* resultado)
+
 {
     int retorno = -1;
-    char bufferStr[4096];
-    int bufferInt;
+    int auxiliar;
 
     if( msg != NULL &&
         msgError != NULL &&
@@ -166,26 +168,22 @@ int getOption(  char* msg,
         reintentos>=0 &&
         resultado != NULL)
     {
-        if(!getString(msg,msgError,MIN_DIGIT_OPTION,MAX_DIGIT_OPTION,reintentos,bufferStr))
+        printf("%s",msg);
+        scanf("%d",&auxiliar);
+        if(!isdigit(auxiliar))
         {
-            if(isValidNumber(bufferStr))
+            if(isValidRange(auxiliar,minimo,maximo))
             {
-                bufferInt = atoi(bufferStr);
-                if(isValidRange(bufferInt,minimo,maximo))
-                {
-                    strncpy(resultado,bufferStr,MAX_DIGIT_OPTION);
-                    retorno = 0;
-                }
-                else
-                {
-                    printf("%s",msgError);
-                }
-
+                *resultado = auxiliar;
+                retorno = 0;
             }
+
         }
     }
     return retorno;
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 int getLegajo(  char* msg,
                 char* msgError,
@@ -248,7 +246,6 @@ int isValidRange(int numero, int minimo, int maximo)
     {
         return FALSE;
     }
-
     return retorno;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -267,52 +264,30 @@ int isValidName(char str[])
     return retorno;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-int isValidInt(int numero)
-{
-    int retorno = TRUE;
-    int i=0;
-    if(!(numero >= 'a' || numero <= 'z' && numero >= 'A' || numero <= 'Z'))
-    {
-        return FALSE;
-    }
-    return retorno;
-}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-int buscarEspacioVacio(int str[], int limite, int espacioVacio)
+void inicializarArrayInt(int str[],int cantidadElementos,int valor)
 {
-    int retorno = FALSE;
     int i;
-
-    for(i = 0;i < limite; i++)
+    for(i=0;i < cantidadElementos; i++)
     {
-        if(str[i] == -1)
+        str[i] = valor;
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+int buscarPrimerOcurrencia(int str[],int cantidadElementos,int valor)
+{
+    int i;
+    for(i=0;i < cantidadElementos; i++)
+    {
+        if(str[i] == valor)
         {
-            espacioVacio = i;
-            retorno = TRUE;
-            break;
+            return i;
         }
     }
-    return retorno;
-
+    return -1;
 }
-int isValidLegajo(int numeroLegajo, int str[],int limite)
-{
-    int retorno = TRUE;
-    int i;
-    for(i = 0; i < limite; i++)
-    {
-        if(numeroLegajo == str[i])
-        {
-            retorno = FALSE;
-        }
-    }
-    return retorno;
-}
-
-
-
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

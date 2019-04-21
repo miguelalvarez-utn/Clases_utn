@@ -2,78 +2,55 @@
 #include <stdlib.h>
 #include "utn.h"
 #include <string.h>
+//--------------------------------
 #define CANTIDAD_CLIENTES 5
-#define CANTIDAD_CARACTERES 20
-#define CARACTERES_OPCION 2
+//--------------------------------
+#define CANTIDAD_MAX_CARACTERES 20
+#define CANTIDAD_MIN_CARACTERES 2
+//--------------------------------
+#define ESPACIO_LIBRE -1
+#define REINTENTOS 2
+//--------------------------------
+
+
 
 int main()
 {
-    char aNombres[CANTIDAD_CLIENTES][CANTIDAD_CARACTERES];
-    char aApellido[CANTIDAD_CLIENTES][CANTIDAD_CARACTERES];
-    char aEdad[CANTIDAD_CLIENTES];
-    char aLegajo[CANTIDAD_CLIENTES];
-    int bufferOpcion[CARACTERES_OPCION];
-    int estado[CANTIDAD_CLIENTES];
+    char aNombre[CANTIDAD_CLIENTES][CANTIDAD_MAX_CARACTERES];
+    char aApellido[CANTIDAD_CLIENTES][CANTIDAD_MAX_CARACTERES];
+    int aLegajo[CANTIDAD_CLIENTES];
 
-    char auxNombre[CANTIDAD_CARACTERES];
-    char auxApellido[CANTIDAD_CARACTERES];
-    char auxEdad[CANTIDAD_CARACTERES];
-    char auxLegajo[CANTIDAD_CARACTERES];
+    char auxiliarNombreStr[50];
+    char auxiliarApellidoStr[50];
+    char auxiliarLegajoStr[50];
+    int auxiliarLegajo;
 
-    int i,j;
-    int empty;
-    int opcion;
-    char respuesta;
+    int indiceLugarLibre;
+    int indiceResultadoBusqueda;
+    int opcion = 0;
 
-    for(i = 0;i < CANTIDAD_CLIENTES; i++)
+    int i;
+    int j;
+
+
+
+    inicializarArrayInt(aLegajo,CANTIDAD_CLIENTES,ESPACIO_LIBRE);
+    getOption("\n\n\n1 - ALTA \n2 - BAJA \n3 - MODIFICACION\n4 - LISTAR\n5 - ORDENAR\n6 - SALIR\n\n\n","Error\n",1,6,2,&opcion);
+    switch(opcion)
     {
-        estado[i] = -1;
-    }
-
-    do
-    {
-        if(!getOption("Ingrese opcion\n1:Alta\n2:Baja\n3:Modificar\n4:Ordenar\n5:Listar\n6:SALIR\n","Error\n",1,6,3,bufferOpcion))
-        {
-            opcion = atoi(bufferOpcion);
-            switch(opcion)
+        case 1:
+            if(indiceLugarLibre = buscarPrimerOcurrencia(aLegajo,CANTIDAD_CLIENTES,ESPACIO_LIBRE))
             {
-                case 1:
-                    system("cls");
-                    if(!buscarEspacioVacio(estado,CANTIDAD_CLIENTES,empty))
-                    {
-                        printf("No hay espacion libre");
-                        break;
-                    }
-                    if(getName("Ingrese nombre\n","Error, nombre invalido\n",2,CANTIDAD_CARACTERES,3,auxNombre))
-                    {
-                        printf("nombre incorrecto\n");
-                        break;
-                    }
-                    if(getName("Ingrese apellido\n","Error, apellido invalido\n",2,CANTIDAD_CARACTERES,3,auxApellido))
-                    {
-                        printf("Apellido incorrecto\n");
-                        break;
-                    }
-                    if(getEdad("Ingrese edad\n","Error, edad invalida\n",1,120,3,auxEdad))
-                    {
-                        printf("Edad incorrecta\n");
-                        break;
-                    }
-                    if(getLegajo("Ingrese legajo\n","Error, dato invalido\n",1,CANTIDAD_CLIENTES,3,auxLegajo))
-                    {
-                        if(isValidLegajo(auxLegajo,aLegajo,CANTIDAD_CLIENTES))
-                        {
-                        printf("Legajo en uso");
-                        break;
-                        }
-                    }
-                    strncpy(aNombres[empty],auxNombre,CANTIDAD_CARACTERES);
-                    strncpy(aApellido[empty],auxNombre,CANTIDAD_CARACTERES);
-                    aEdad[empty] = atoi(auxEdad);
-                    aLegajo[empty] = atoi(auxLegajo);
-
-
+                printf("\n\nNO QUEDAN LUGARES LIBRES!!!\n");
+                break;
             }
-        }
-    }while(opcion != 6);
+            if(!getName("Ingrese su nombre\n","Error\n",CANTIDAD_MIN_CARACTERES,CANTIDAD_MAX_CARACTERES,REINTENTOS,auxiliarNombreStr))
+            {
+                printf ("El nombre debe estar compuesto solo por letras\n");
+                break;
+            }
+
+    }
+ return 0;
 }
+
