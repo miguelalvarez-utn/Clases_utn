@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1556750091 source:c:\users\miguea11\desktop\carpeta_trabajo\abm_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"Pantallas.h"
+	"Publicidad.h"
+
+1556750181 c:\users\miguea11\desktop\carpeta_trabajo\abm_parcial\pantallas.h
+
+1556750244 c:\users\miguea11\desktop\carpeta_trabajo\abm_parcial\publicidad.h
+
+1556749370 source:c:\users\miguea11\desktop\carpeta_trabajo\abm_parcial\publicidad.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	"Pantallas.h"
+	"Publicidad.h"
+	"Validaciones.h"
+
+1556750227 source:c:\users\miguea11\desktop\carpeta_trabajo\abm_parcial\pantallas.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	"Pantallas.h"
+	"Publicidad.h"
+	"Validaciones.h"
+
+1556473188 source:c:\users\miguea11\desktop\carpeta_trabajo\abm_parcial\validaciones.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1556404616 c:\users\miguea11\desktop\carpeta_trabajo\abm_parcial\validaciones.h
+
