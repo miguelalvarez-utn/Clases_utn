@@ -11,10 +11,11 @@ typedef struct
     int isEmpty;
     //-----------------
     char varString[TEXT_SIZE];
+    char varLongString[TEXT_SIZE];
     int varInt;
     float varFloat;
     char varChar;
-    char varLongString[TEXT_SIZE];
+
 
 }Fantasma;
 

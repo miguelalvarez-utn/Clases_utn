@@ -32,3 +32,7 @@ int isValidAlphanumeric(char* stringRecibido);
 
 int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, char* resultado);
 int isValidChar(char charRecibido);
+
+int utn_getFecha(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input);
+int isValidFechaA(char str[]);
+int isValidFechaB(char str[]);

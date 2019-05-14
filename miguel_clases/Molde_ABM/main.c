@@ -42,10 +42,10 @@ int main()
                             fantasma_modificar(arrayFantasma,QTY_ARRAY_TIPO);
                             break;
                         case 4:
-
                             fantasma_listar(arrayFantasma,QTY_ARRAY_TIPO);
                             break;
                         case 5:
+
                             fantasma_ordenar(arrayFantasma,QTY_ARRAY_TIPO);
                             fantasma_listar(arrayFantasma,QTY_ARRAY_TIPO);
                             break;

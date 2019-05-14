@@ -578,3 +578,82 @@ int isValidChar(char charRecibido)
         retorno=0;
     return retorno;
 }
+
+int utn_getFecha(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
+{
+    int retorno=-1;
+    char bufferStr[maxSize];
+
+    if(msg!=NULL && msgError!=NULL && minSize<maxSize && reintentos>=0 && input!=NULL)
+    {
+        do
+        {
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            {
+
+                if(isValidFechaA(bufferStr)==1)
+                {
+
+                    if(isValidFechaB(bufferStr)==1)
+                    {
+
+                        strncpy(input,bufferStr,maxSize);
+                        retorno=0;
+                        break;
+                    }
+                    else
+                    {
+
+                        printf("%s 2",msgError);
+                        reintentos--;
+                    }
+                }
+                else
+                {
+                    printf("%s 2",msgError);
+                    reintentos--;
+                }
+            }
+        }
+        while(reintentos>=0);
+    }
+    return retorno;
+}
+//////////////////////////////////////////////////
+int isValidFechaA(char str[])
+{
+
+    int retorno = 1;
+    int i=0;
+    while(str[i] != '\0')
+    {
+        if((str[i] < '0' || str[i] > '9') &&  (str[i] != '/'))
+        {
+            retorno = 0;
+        }
+        i++;
+    }
+    return retorno;
+}
+//////////////////////////////////////////////////
+int isValidFechaB(char str[])
+{
+    int retorno = 0;
+
+    if(str[7] != '\0')
+    {
+        if(( str[0]>='0' && str[0]<='3')&&
+            ((str[0] > '0')&& str[1] > '0' && str[1]<= '9') &&
+            (str[2] =='/' && str[5]=='/') &&
+            (str[3] >= '0' && str[3]<= '1')&&
+            (str[4] >= '0' && str[4]<= '2')&&
+            (str[6] >= '0' && str[6]<= '9')&&
+            (str[7] >= '0' && str[7]<= '9') )
+        {
+            retorno = 1;
+        }
+    }
+    return retorno;
+}
+
+
